@@ -1,4 +1,27 @@
 Final1::Application.routes.draw do
+
+  # Specify a custom home page
+  get "/" => "hospitals#index"
+
+
+  # Resource: Hospitals
+
+  # --- Create
+  get "/hospitals/new" => 'hospitals#new'
+  post "/hospitals" => 'hospitals#create'
+
+  # --- Read
+  get "/hospitals" => 'hospitals#index'
+  get "/hospitals/:id" => 'hospitals#show'
+
+  # -- Update
+  get "/hospitals/:id/edit" => 'hospitals#edit'
+  patch "/hospitals/:id" => 'hospitals#update'
+
+  # --- Delete
+  delete "/hospitals/:id" => 'hospitals#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

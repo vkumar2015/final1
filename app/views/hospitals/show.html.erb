@@ -1,0 +1,34 @@
+<h1> Hospitals & Doctors Review Website </h1>
+
+Currently we have <%= Hospital.read("hcountry" => "United States").count %> hospitals from United States and <%= Hospital.read("hcountry" => "Canada").count %> hospitals from Canada on this website.
+<br><%= link_to "Click to see full list of Hospitals", "/hospitals" %>
+<br>
+<br>
+<hr>
+
+<% hospital_id = params["id"] %>
+<% hospital = Hospital.read(hospital_id) %>
+<% hospital.update "page_count" => (hospital["page_count"] + 1) %>
+
+<%= image_tag(hospital["hphotourl"]) %>
+
+<h1><%= hospital["hospname"] %>
+      <small>(Established: <%= hospital["hyear"] %>)</small>
+</h1>
+
+    <ul>
+        <li>Country: <%=hospital.hcountry%></li>
+        <li>Specialization#1: <%=hospital.hspecialization1%></li>
+        <li>Specialization#2:<%=hospital.hspecialization2%></li>
+        <li>Country: <%=hospital.hcountry%></li>
+        <li>Contact Address: <%=hospital.haddress%></li>
+        <li>Phone: <%=hospital.hphone%></li>
+        <li>Email: <%=hospital.hemail%></li>
+        <li>Website: <%=hospital.hurl%></li>
+        <li># of beds: <%=hospital.hbeds%></li>
+
+    </ul>
+
+<h3> This <%= hospital.htype %> hospital's page has been viewed <%=hospital.page_count %> times by people like you.
+
+
