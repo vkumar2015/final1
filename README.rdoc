@@ -6,9 +6,4 @@ Following requirements for the project has been implemented
 3. Allow users to sign up, sign in, and sign out: Yes this has been done
 4. Populate the database via seed data: Yes this has been done
 5  Demonstrate best-practice use of Rails MVC architecture: Yes this has been done 
-6. Deploy your app to a live internet URL: Yes this has been done at http://sleepy-anchorage-4327.herokuapp.com/
-
-
-
-
-
+6. Deploy your app to a live internet URL: http://sleepy-anchorage-4327.herokuapp.com/ 
