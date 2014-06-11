@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Once you've started up your virtual machine and connected to it (with "vagrant ssh"), there are two ways you can get this code:
 
-Things you may want to cover:
+First, you can try the `catchup` command.  This command will attempt to connect to this repository and replace any code you have with the latest code here.
 
-* Ruby version
+Alternatively, you can try this sequence:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Close Sublime Text.  If your rails server or console are running, stop them.
+3. Using Windows Explorer/Mac Finder, completely delete your imdb folder.
+2. In your vagrant@ command prompt: cd ~/code/projects
+4. git clone https://github.com/kiei925-spring14/imdb
+5. cd imdb
+6. bundle install --without production
+7. rake ez:tables
+8. rake db:seed
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
