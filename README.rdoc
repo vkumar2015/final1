@@ -1,19 +1,14 @@
-== README
+KIEI-925: Final Project
 
-Once you've started up your virtual machine and connected to it (with "vagrant ssh"), there are two ways you can get this code:
+Following requirements for the project has been implemented
+1. Implement at least one many-to-many association: Model Treatment has many-to-many relationships
+2. Implement at least three models: Models Doctor, Hospital, Treatment, User have been implemented
+3. Allow users to sign up, sign in, and sign out: Yes this has been done
+4. Populate the database via seed data: Yes this has been done
+5  Demonstrate best-practice use of Rails MVC architecture: Yes this has been done 
+6. Deploy your app to a live internet URL: Yes this has been done at http://sleepy-anchorage-4327.herokuapp.com/
 
-First, you can try the `catchup` command.  This command will attempt to connect to this repository and replace any code you have with the latest code here.
 
-Alternatively, you can try this sequence:
-
-1. Close Sublime Text.  If your rails server or console are running, stop them.
-3. Using Windows Explorer/Mac Finder, completely delete your imdb folder.
-2. In your vagrant@ command prompt: cd ~/code/projects
-4. git clone https://github.com/kiei925-spring14/imdb
-5. cd imdb
-6. bundle install --without production
-7. rake ez:tables
-8. rake db:seed
 
 
 
