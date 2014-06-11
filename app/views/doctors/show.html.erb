@@ -1,0 +1,34 @@
+
+<% doctor_id = params["id"] %>
+<% doctor = Doctor.read(doctor_id) %>
+<% doctor.update "page_count" => (doctor["page_count"] + 1) %>
+
+<%= image_tag(doctor["dphotourl"], "width" => "200" ) %>
+
+<h1><%= doctor["dname"] %></h1>
+
+    <ul>
+        <li>Profile Page: <%=doctor.dprofile%></li>
+        <li>Age: <%=doctor.dage%></li>
+        <li>Specialization#1: <%=doctor.dspecialization1%></li>
+        <li>Specialization#2:<%=doctor.dspecialization2%></li>
+        <li>Work History: <%=doctor.dwork%></li>
+        <li>Education: <%=doctor.deducation%></li>
+        <li>Hospitals Associated:
+         <% treatments = Treatment.where("doc_id" => doctor["id"]) %>
+        <ul>
+          <% treatments.each do |treatment| %>
+          <% hospital = Hospital.find_by("id" => treatment["hosp_id"]) %>
+            <li>
+              <%= treatment["treatname"] %>
+              at
+              <%= link_to hospital["hospname"], "/hospitals/#{hospital["id"]}" %>
+            </li>
+          <% end %>
+        </ul>
+    </ul>
+
+<strong>This doctor's page has been viewed <%=doctor.page_count %> times by people like you.</strong>
+Click to <%= link_to "Delete", "/doctors/#{doctor["id"]}", "method" => "delete" %> or <%= link_to "Edit", "/doctors/#{doctor["id"]}/edit" %> this record.
+
+<br><br><%= link_to "Click to see rest of the Doctors in the database", "/doctors" %>

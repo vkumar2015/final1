@@ -1,0 +1,15 @@
+<% all_treatments= Treatment.read %>
+
+<h2>Treatments:</h2>
+<br><br>
+
+<ul>
+  <% all_treatments.each do |treatment| %>
+    <li>
+      <strong><%= treatment["treatname"]  %> : </strong>
+      <%= link_to Doctor.find_by("id" => treatment["doc_id"]).dname , "/doctors/#{treatment["doc_id"]}" %>
+      at
+      <%= link_to Hospital.find_by("id" => treatment["hosp_id"]).hospname , "hospitals/#{treatment["hosp_id"]}" %>
+    </li>
+  <% end %>
+</ul>

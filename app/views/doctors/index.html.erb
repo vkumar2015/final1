@@ -1,0 +1,18 @@
+
+<% all_doctors = Doctor.read %>
+
+<h2>Doctors:</h2>
+<br><%= link_to "Click to add a New Doctor", "/doctors/new" %>
+<br><br>
+
+<ul>
+  <% all_doctors.each do |doctor| %>
+    <li>
+      <%= image_tag doctor["dphotourl"], "width" => "120" %>
+      <%= link_to doctor["dname"], "/doctors/#{doctor["id"]}" %>
+      (<%= link_to "Delete", "/doctors/#{doctor["id"]}", "method" => "delete" %>)
+      (<%= link_to "Edit", "/doctors/#{doctor["id"]}/edit" %>)
+    </li>
+  <% end %>
+</ul>
+

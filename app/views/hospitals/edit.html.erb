@@ -1,71 +1,70 @@
 <% hospital = Hospital.find_by("id" => params["id"]) %>
 
-<h1>Edit Hospitals #<%= hospital["id"] %></h1>
+<h1>Edit Hospital #<%= hospital["id"] %></h1>
 
-<form action="/hospitals/<%= hospital["id"] %>" method="patch">
+<%= form_tag "/hospitals/#{hospital["id"]}" , "method" => "patch" %>
 
   <p>
-    <label>Hospital name:</label>
-    <input type="text" name="name" value="<%=hospital["hospname"] %>">
+    <%= label_tag "name" , "Hospital name:" %>
+    <%= text_field_tag "name" , hospital["hospname"] %>
   </p>
   <p>
-    <label>Country:</label>
-    <input type="text" name="country" value="<%=hospital["hcountry"] %>">
+    <%= label_tag "country" , "Country:" %>
+    <%= text_field_tag "country" , hospital["hcountry"] %>
   </p>
   <p>
-    <label>State:</label>
-    <input type="text" name="state" value="<%=hospital["hstate"] %>">
+    <%= label_tag "state" , "State:" %>
+    <%= text_field_tag "state" , hospital["hstate"] %>
   </p>
   <p>
-    <label>Zip:</label>
-    <input type="text" name="zip" value="<%=hospital["hzip"] %>">
+    <%= label_tag "zip" , "Zip:" %>
+    <%= text_field_tag "zip" , hospital["hzip"] %>
   </p>
   <p>
-    <label>City:</label>
-    <input type="text" name="city" value="<%=hospital["hcity"] %>">
+    <%= label_tag "city" , "City:" %>
+    <%= text_field_tag "city" , hospital["hcity"] %>
   </p>
   <p>
-    <label>Photo url:</label>
-    <input type="text" name="photourl" value="<%=hospital["hphotourl"] %>">
+    <%= label_tag "photourl" , "Photo url:" %>
+    <%= text_field_tag "photourl" , hospital["hphotourl"] %>
   </p>
   <p>
-    <label>Year Established:</label>
-    <input type="integer" name="year" value="<%=hospital["hyear"] %>">
+    <%= label_tag "year" , "Year Established:" %>
+    <%= text_field_tag "year" , hospital["hyear"] %>
   </p>
   <p>
-    <label>Address:</label>
-    <input type="text" name="address" value="<%=hospital["haddress"] %>">
+    <%= label_tag "address" , "Address:" %>
+    <%= text_field_tag "address" , hospital["haddress"] %>
   </p>
   <p>
-    <label>Type:</label>
-    <input type="text" name="type"  value="<%=hospital["htype"] %>">
+    <%= label_tag "type" , "Type:" %>
+    <%= text_field_tag "type" , hospital["htype"] %>
   </p>
   <p>
-    <label>Phone:</label>
-    <input type="text" name="phone" value="<%=hospital["hphone"] %>">
+    <%= label_tag "phone" , "Phone:" %>
+    <%= text_field_tag "phone" , hospital["hphone"] %>
   </p>
   <p>
-    <label>Email:</label>
-    <input type="text" name="email" value="<%=hospital["hemail"] %>">
+    <%= label_tag "email" , "Email:" %>
+    <%= text_field_tag "email" , hospital["hemail"] %>
   </p>
   <p>
-    <label>Website:</label>
-    <input type="text" name="url" value="<%=hospital["hurl"] %>">
+    <%= label_tag "url" , "Website:" %>
+    <%= text_field_tag "url" , hospital["hurl"] %>
   </p>
   <p>
-    <label>Specilization #1:</label>
-    <input type="text" name="specilization1"  value="<%=hospital["hspecialization1"] %>">
+    <%= label_tag "specilization1" , "Specilization #1:" %>
+    <%= text_field_tag "specilization1" , hospital["hspecialization1"] %>
   </p>
   <p>
-    <label>Specilization #2:</label>
-    <input type="text" name="specilization2"  value="<%=hospital["hspecialization2"] %>">
+    <%= label_tag "specilization2" , "Specilization #2:" %>
+    <%= text_field_tag "specilization2" , hospital["hspecialization2"] %>
   </p>
   <p>
-    <label>No. of Beds:</label>
-    <input type="integer" name="beds" value="<%=hospital["hbeds"] %>">
+    <%= label_tag "hbeds" , "No. of Beds:" %>
+    <%= text_field_tag "hbeds" , hospital["hbeds"] %>
   </p>
 
-
-  <input type="submit"> or <a href="/hospitals">Cancel</a>
+  <%= submit_tag %> or <%= link_to "Cancel" , "/hospitals" %>
 
 </form>

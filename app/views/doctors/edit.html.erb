@@ -1,0 +1,42 @@
+<% doctor = Doctor.find_by("id" => params["id"]) %>
+
+<h1>Edit Doctor #<%= doctor["id"] %></h1>
+
+<%= form_tag "/doctors/#{doctor["id"]}" , "method" => "patch" %>
+
+  <p>
+    <%= label_tag "name" , "Doctor name:" %>
+    <%= text_field_tag "name" , doctor["dname"] %>
+  </p>
+  <p>
+    <%= label_tag "profile" , "Profile Page:" %>
+    <%= text_field_tag "age" , doctor["dprofile"] %>
+  </p>
+  <p>
+    <%= label_tag "age" , "age:" %>
+    <%= text_field_tag "age" , doctor["dage"] %>
+  </p>
+  <p>
+    <%= label_tag "photourl" , "Photo url:" %>
+    <%= text_field_tag "photourl" , doctor["dphotourl"] %>
+  </p>
+  <p>
+    <%= label_tag "specilization1" , "Specilization #1:" %>
+    <%= text_field_tag "specilization1" , doctor["dspecialization1"] %>
+  </p>
+  <p>
+    <%= label_tag "specilization2" , "Specilization #2:" %>
+    <%= text_field_tag "specilization2" , doctor["dspecialization2"] %>
+  </p>
+  <p>
+    <%= label_tag "work" , "Work:" %>
+    <%= text_field_tag "work" , doctor["dwork"] %>
+  </p>
+  <p>
+    <%= label_tag "education" , "Education:" %>
+    <%= text_field_tag "education" , doctor["deducation"] %>
+  </p>
+
+  <%= submit_tag %> or <%= link_to "Cancel" , "/doctors" %>
+
+</form>

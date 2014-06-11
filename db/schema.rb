@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603074304) do
+ActiveRecord::Schema.define(version: 20140611033702) do
 
   create_table "doctors", force: true do |t|
     t.string  "dname"
     t.string  "dprofile"
-    t.integer "dage"
+    t.string  "dage"
     t.string  "dphotourl"
     t.string  "dspecialization1"
     t.string  "dspecialization2"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140603074304) do
     t.string  "hzip"
     t.string  "hcity"
     t.string  "hphotourl"
-    t.integer "hyear"
+    t.string  "hyear"
     t.string  "haddress"
     t.string  "htype"
     t.string  "hphone"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140603074304) do
     t.string  "hurl"
     t.string  "hspecialization1"
     t.string  "hspecialization2"
-    t.integer "hbeds"
+    t.string  "hbeds"
     t.integer "page_count"
   end
 
@@ -54,15 +54,10 @@ ActiveRecord::Schema.define(version: 20140603074304) do
     t.string "insuurl"
   end
 
-  create_table "treatmenthosps", force: true do |t|
-    t.integer "treat_id"
+  create_table "treatments", force: true do |t|
+    t.string  "treatname"
     t.integer "doc_id"
     t.integer "hosp_id"
-  end
-
-  create_table "treatments", force: true do |t|
-    t.string "treatname"
-    t.string "treaturl"
   end
 
   create_table "ureviewdocs", force: true do |t|

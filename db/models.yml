@@ -29,7 +29,7 @@ Hospital:
   - hzip: string
   - hcity: string
   - hphotourl: string
-  - hyear: integer
+  - hyear: string
   - haddress: string
   - htype: string
   - hphone: string
@@ -37,7 +37,7 @@ Hospital:
   - hurl: string
   - hspecialization1: string
   - hspecialization2: string
-  - hbeds: integer
+  - hbeds: string
   - page_count: integer
 
 Insurance:
@@ -51,7 +51,7 @@ Insurancehosp:
 Doctor:
   - dname: string
   - dprofile: string
-  - dage: integer
+  - dage: string
   - dphotourl: string
   - dspecialization1: string
   - dspecialization2: string
@@ -61,10 +61,6 @@ Doctor:
 
 Treatment:
   - treatname: string
-  - treaturl: string
-
-Treatmenthosp:
-  - treat_id: integer
   - doc_id: integer
   - hosp_id: integer
 

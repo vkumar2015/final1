@@ -1,14 +1,9 @@
-<h1> Hospitals & Doctors Review Website </h1>
-
-Currently we have <%= Hospital.read("hcountry" => "United States").count %> hospitals from United States and <%= Hospital.read("hcountry" => "Canada").count %> from Canada on this website.
-<br><%= link_to "Click to add a New Hospital", "/hospitals/new" %>
-<br>
-<br>
-<hr>
 
 <% all_hospitals = Hospital.read %>
 
 <h2>Hospitals:</h2>
+<br><%= link_to "Click to add a New Hospital", "/hospitals/new" %>
+<br><br>
 
 <ul>
   <% all_hospitals.each do |hospital| %>

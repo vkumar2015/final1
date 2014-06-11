@@ -1,26 +1,92 @@
 Final1::Application.routes.draw do
 
   # Specify a custom home page
-  get "/" => "hospitals#index"
+  get "/" => "sessions#index"
+  # get "/" => "treatments#index"
 
+  # Sign-In and Sign-Out
+  get "/logout" => 'sessions#logout'
+  get "/login" => 'sessions#login'
+  post "/authenticate" => 'sessions#authenticate'
+
+
+  # Resource: Ureviewshosps
+  # --- Create
+  #get "/ureviewshosps/new" => 'ureviewshosps#new'
+  #post "/ureviewshosps" => 'ureviewshosps#create'
+  # --- Read
+  #get "/ureviewshosps" => 'ureviewshosps#index'
+  #get "/ureviewshosps/:id" => 'ureviewshosps#show'
+  # -- Update
+  #get "/ureviewshosps/:id/edit" => 'ureviewshosps#edit'
+  #patch "/ureviewshosps/:id" => 'ureviewshosps#update'
+  # --- Delete
+  #delete "/ureviewshosps/:id" => 'ureviewshosps#destroy'
+
+  # Resource: Ureviewsdocs
+  # --- Create
+  #get "/ureviewsdocs/new" => 'ureviewsdocs#new'
+  #post "/ureviewsdocs" => 'ureviewsdocs#create'
+  # --- Read
+  #get "/ureviewsdocs" => 'ureviewsdocs#index'
+  #get "/ureviewsdocs/:id" => 'ureviewsdocs#show'
+  # -- Update
+  #get "/ureviewsdocs/:id/edit" => 'ureviewsdocs#edit'
+  #patch "/ureviewsdocs/:id" => 'ureviewsdocs#update'
+  # --- Delete
+  #delete "/ureviewsdocs/:id" => 'ureviewsdocs#destroy'
+
+  # Resource: Users
+  # --- Create
+  get "/users/new" => 'users#new'
+  post "/users" => 'users#create'
+  # --- Read
+  get "/users" => 'users#index'
+  get "/users/:id" => 'users#show'
+  # -- Update
+  get "/users/:id/edit" => 'users#edit'
+  patch "/users/:id" => 'users#update'
+  # --- Delete
+  delete "/users/:id" => 'users#destroy'
+
+  # Resource: Treatments
+  # --- Create
+  get "/treatments/new" => 'treatments#new'
+  post "/treatments" => 'treatments#create'
+  # --- Read
+  get "/treatments" => 'treatments#index'
+  get "/treatments/:id" => 'treatments#show'
+  # -- Update
+  get "/treatments/:id/edit" => 'treatments#edit'
+  patch "/treatments/:id" => 'treatments#update'
+  # --- Delete
+  delete "/treatments/:id" => 'treatments#destroy'
 
   # Resource: Hospitals
-
   # --- Create
   get "/hospitals/new" => 'hospitals#new'
   post "/hospitals" => 'hospitals#create'
-
   # --- Read
   get "/hospitals" => 'hospitals#index'
   get "/hospitals/:id" => 'hospitals#show'
-
   # -- Update
   get "/hospitals/:id/edit" => 'hospitals#edit'
   patch "/hospitals/:id" => 'hospitals#update'
-
   # --- Delete
   delete "/hospitals/:id" => 'hospitals#destroy'
 
+  # Resource: Doctors
+  # --- Create
+  get "/doctors/new" => 'doctors#new'
+  post "/doctors" => 'doctors#create'
+  # --- Read
+  get "/doctors" => 'doctors#index'
+  get "/doctors/:id" => 'doctors#show'
+  # -- Update
+  get "/doctors/:id/edit" => 'doctors#edit'
+  patch "/doctors/:id" => 'doctors#update'
+  # --- Delete
+  delete "/doctors/:id" => 'doctors#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

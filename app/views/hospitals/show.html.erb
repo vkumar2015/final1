@@ -1,20 +1,11 @@
-<h1> Hospitals & Doctors Review Website </h1>
-
-Currently we have <%= Hospital.read("hcountry" => "United States").count %> hospitals from United States and <%= Hospital.read("hcountry" => "Canada").count %> hospitals from Canada on this website.
-<br><%= link_to "Click to see full list of Hospitals", "/hospitals" %>
-<br>
-<br>
-<hr>
 
 <% hospital_id = params["id"] %>
 <% hospital = Hospital.read(hospital_id) %>
 <% hospital.update "page_count" => (hospital["page_count"] + 1) %>
 
-<%= image_tag(hospital["hphotourl"]) %>
+<%= image_tag(hospital["hphotourl"], "width" => "400" ) %>
 
-<h1><%= hospital["hospname"] %>
-      <small>(Established: <%= hospital["hyear"] %>)</small>
-</h1>
+<h1><%= hospital["hospname"] %><small> (Established: <%= hospital["hyear"] %>)</small></h1>
 
     <ul>
         <li>Country: <%=hospital.hcountry%></li>
@@ -25,10 +16,23 @@ Currently we have <%= Hospital.read("hcountry" => "United States").count %> hosp
         <li>Phone: <%=hospital.hphone%></li>
         <li>Email: <%=hospital.hemail%></li>
         <li>Website: <%=hospital.hurl%></li>
+        <li>Type: <%=hospital.htype%></li>
         <li># of beds: <%=hospital.hbeds%></li>
-
+        <li>Doctors Available:
+         <% treatments = Treatment.where("hosp_id" => hospital["id"]) %>
+        <ul>
+          <% treatments.each do |treatment| %>
+          <% doctor = Doctor.find_by("id" => treatment["doc_id"]) %>
+            <li>
+              <%= link_to doctor["dname"], "/doctors/#{doctor["id"]}" %>
+              for
+              <%= treatment["treatname"] %>
+            </li>
+          <% end %>
+        </ul>
     </ul>
 
-<h3> This <%= hospital.htype %> hospital's page has been viewed <%=hospital.page_count %> times by people like you.
+<strong>This hospital's page has been viewed <%=hospital.page_count %> times by people like you.</strong>
+Click to <%= link_to "Delete", "/hospitals/#{hospital["id"]}", "method" => "delete" %> or <%= link_to "Edit", "/hospitals/#{hospital["id"]}/edit" %> this record.
 
-
+<br><br><%= link_to "Click to see rest of the Hospitals in the database", "/hospitals" %>

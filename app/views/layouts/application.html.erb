@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Final1</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+   <title>KIEI-925 Final Project</title>
+    <%= stylesheet_link_tag    "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
 
-</body>
+      <div class="header">
+        <div class="row">
+          <div class="col-md-12">
+            <h1><%= link_to "Hospitals & Doctors" , "/" %></h1>
+          </div>
+        </div>
+
+         <h6>Currently we have information on...
+         <ul>
+            <li>
+            <% number_of_hospitals = Hospital.read("hcountry" => "United States").count %>
+            <%= pluralize(number_of_hospitals, "hospital") %> in United States
+            </li>
+            <li>
+            <% number_of_doctors = Doctor.count %>
+            <%= pluralize(number_of_doctors, "doctor") %> from across the world
+            </li>
+            <li><%= User.count %> users like you refer to this database regularly</li>
+        </ul></h6>
+        Click here to find out more on </a>
+
+        <div class="row">
+          <div class="col-md-8">
+            <%= link_to "Hospitals", "/hospitals" %> |
+            <%= link_to "Doctors", "/doctors" %> |
+            <%= link_to "Treatments", "/treatments", "class" => "item-link"  %>
+          </div>
+          <div class="pull-right">
+            <% user = User.find_by("id" => cookies["user_id"]) %>
+            <% if user.present? %>
+              Hello <%= user["uname"] %> |
+              <%= link_to "My Profile", "/users/#{user["id"]}" %> |
+              <%= link_to "Sign Out", '/logout' %>
+            <% else %>
+              <%= link_to "Sign Up", '/users/new' %> |
+              <%= link_to "Sign In", '/login' %>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+        <h4 class="text-warning"><%= notice %></h4>
+      </div>
+
+    <%= yield %>
+  </body>
 </html>
